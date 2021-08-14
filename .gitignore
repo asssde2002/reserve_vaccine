@@ -1,3 +1,4 @@
 .DS_Store
 production.cfg
 __pycache__
+*.log
