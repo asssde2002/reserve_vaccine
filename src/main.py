@@ -19,13 +19,13 @@ class Reservation:
     
     def __exit__(self ,type, value, traceback):   
         self.driver.close()
-        
+
     def reserve(self, location):
         # Choose the vaccination consultation
         self.driver.get("https://reg.kmuh.gov.tw/netreg/DeptUI.aspx")
         
         # The field of tr and td may be changed
-        self.driver.find_element_by_xpath('//*[@id="tContent"]/tbody/tr[2]/td[2]/a').click()
+        self.driver.find_element_by_xpath('//*[@id="tContent"]/tbody/tr[6]/td[4]/a').click()
         self.driver.find_element_by_xpath(f'//*[@id="divOut"]/table/tbody/tr[{location[0]}]/td[{location[1]}]/a').click()
         
         # Input personal data
@@ -74,9 +74,11 @@ class Reservation:
 
 if __name__ == "__main__":
     result = "Failed"
+    available_field = (3, 4)
+    
     with Reservation() as r:
         for i in range(2):
-            r.reserve((3, 9))
+            r.reserve(available_field)
             result = r.check_reservation()
             with open(f"{PROJECT_DIR}/execution.log", "a") as fp:
                 fp.write(f"Reserved Result: {result}\n")
