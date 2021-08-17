@@ -19,6 +19,8 @@ class Reservation:
     
     def __exit__(self ,type, value, traceback):   
         self.driver.close()
+        with open(f"{PROJECT_DIR}/execution.log", "a") as fp:
+            fp.write(f"Reserved Result: Error\n")
 
     def reserve(self, location):
         # Choose the vaccination consultation
