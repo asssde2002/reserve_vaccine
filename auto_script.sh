@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /reserve_vaccine >& /dev/null
+cd reserve_vaccine >& /dev/null
 my_dir="${PWD}"
 echo -e "$(date) \nStart Crontab" >> ${my_dir}/execution.log
 source $my_dir/venv/bin/activate
