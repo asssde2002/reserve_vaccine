@@ -14,7 +14,7 @@ class Reservation:
     def __enter__(self):   
         chrome_options = Options()
         chrome_options.add_argument("--disable-notifications")
-        self.driver = webdriver.Chrome(f'{PROJECT_DIR}/venv/bin/chromedriver', chrome_options=chrome_options)
+        self.driver = webdriver.Chrome(f'venv/bin/chromedriver', chrome_options=chrome_options)
         return self
     
     def __exit__(self ,type, value, traceback):   
