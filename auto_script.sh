@@ -1,9 +1,9 @@
 #!/bin/bash
 
 cd reserve_vaccine >& /dev/null
-my_dir="${PWD}"
-echo -e "$(date) \nStart Crontab" >> ${my_dir}/execution.log
-source $my_dir/venv/bin/activate
-python3 $my_dir/src/main.py
+#my_dir="${PWD}"
+echo -e "$(date) \nStart Crontab" >> execution.log
+source venv/bin/activate
+python3 src/main.py
 deactivate
-echo -e "Finish Crontab \n" >> ${my_dir}/execution.log
+echo -e "Finish Crontab \n" >> execution.log
